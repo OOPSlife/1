@@ -1,0 +1,49 @@
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int entries = scanner.nextInt();
+        scanner.nextLine(); // Read the newline character after the integer
+
+        Map<String, String> phoneBook = new HashMap<>();
+
+        // Read phone book entries
+        for (int i = 0; i < entries; i++) {
+            String name = scanner.nextLine();
+            String phoneNumber = scanner.nextLine();
+            phoneBook.put(name, phoneNumber);
+        }
+
+        // Process queries
+        while (scanner.hasNext()) {
+            String query = scanner.nextLine();
+            if (phoneBook.containsKey(query)) {
+                String phoneNumber = phoneBook.get(query);
+                System.out.println(query + " " + phoneNumber);
+            } else {
+                System.out.println("Not found");
+            }
+        }
+
+        scanner.close();
+    }
+}
+/* 5
+        John Doe
+        12345678
+        Jane Smith
+        87654321
+        Alice
+        98765432
+        Bob Johnson
+        45678901
+        Emily Brown
+        54321098
+        John Doe
+        Jane Smith
+        Alice
+        Michael Johnson
+        Emily Brown /*

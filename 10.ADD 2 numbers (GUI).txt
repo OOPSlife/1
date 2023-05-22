@@ -1,0 +1,90 @@
+
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+
+
+public class Main extends JFrame implements ActionListener {
+    public static final int WIDTH = 400;
+    public static final int HEIGHT = 400;
+
+    private JTextField firstNumberField;
+    private JTextField secondNumberField;
+    private JTextField resultField;
+    private double sum = 0;
+
+    public static void main(String[] args) {
+        Main guiAdder = new Main();
+        guiAdder.setVisible(true);
+    }
+
+    public Main() {
+        setTitle("Adding Machine");
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // Exit the application when the window is closed
+        setSize(WIDTH, HEIGHT);
+        Container contentPane = getContentPane();
+        contentPane.setLayout(new BorderLayout());
+
+        JPanel inputPanel = new JPanel();
+        inputPanel.setLayout(new GridLayout(3, 2));
+
+        JLabel firstNumberLabel = new JLabel("First Number:");
+        firstNumberField = new JTextField(10);
+        JLabel secondNumberLabel = new JLabel("Second Number:");
+        secondNumberField = new JTextField(10);
+        JLabel resultLabel = new JLabel("Result:");
+        resultField = new JTextField(10);
+        resultField.setEditable(false);
+
+        inputPanel.add(firstNumberLabel);
+        inputPanel.add(firstNumberField);
+        inputPanel.add(secondNumberLabel);
+        inputPanel.add(secondNumberField);
+        inputPanel.add(resultLabel);
+        inputPanel.add(resultField);
+
+        contentPane.add(inputPanel, BorderLayout.NORTH);
+
+        JPanel buttonPanel = new JPanel();
+        buttonPanel.setBackground(Color.WHITE);
+        buttonPanel.setLayout(new FlowLayout(FlowLayout.RIGHT));
+
+        JButton addButton = new JButton("Add");
+        addButton.addActionListener(this);
+        JButton resetButton = new JButton("Clear");
+        resetButton.addActionListener(this);
+
+        buttonPanel.add(addButton);
+        buttonPanel.add(resetButton);
+
+        contentPane.add(buttonPanel, BorderLayout.CENTER);
+
+        JButton exitButton = new JButton("Exit");
+        exitButton.addActionListener(this);
+        JPanel exitPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT));
+        exitPanel.add(exitButton);
+        contentPane.add(exitPanel, BorderLayout.SOUTH);
+    }
+
+    public void actionPerformed(ActionEvent e) {
+        if (e.getActionCommand().equals("Add")) {
+            try {
+                double firstNumber = Double.parseDouble(firstNumberField.getText());
+                double secondNumber = Double.parseDouble(secondNumberField.getText());
+                sum = firstNumber + secondNumber;
+                resultField.setText(Double.toString(sum));
+            } catch (NumberFormatException ex) {
+                resultField.setText("Invalid input");
+            }
+        } else if (e.getActionCommand().equals("Reset")) {
+            firstNumberField.setText("");
+            secondNumberField.setText("");
+            resultField.setText("");
+        } else if (e.getActionCommand().equals("Exit")) {
+            System.exit(0);
+        } else {
+            resultField.setText("Error in adder code.");
+        }
+    }
+}
