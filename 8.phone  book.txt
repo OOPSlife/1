@@ -32,18 +32,18 @@ public class Main {
     }
 }
 /* 5
-        John Doe
+        Diya Shaikh
         12345678
-        Jane Smith
+        Muaz Shaikh
         87654321
-        Alice
+        Bhavya
         98765432
-        Bob Johnson
+        Sejal Jaghav
         45678901
-        Emily Brown
+        Yashraj Sawant
         54321098
-        John Doe
-        Jane Smith
-        Alice
+        Varsha Maam
+        Joe Smith
+        Prince
         Michael Johnson
-        Emily Brown /*
+        Basket /*
