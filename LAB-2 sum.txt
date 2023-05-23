@@ -1,0 +1,70 @@
+import java.util.Scanner;
+
+public class Main{
+
+    public static void main(String args[]){
+
+
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("Target number is:");
+
+        int targetsum = sc.nextInt();
+
+
+        System.out.println("Size of array");
+        int size = sc.nextInt();
+
+
+        System.out.println("Entre the elements in your array:");
+
+        int[] arr= new int[size];
+
+
+        for(int i=0; i<size; i++){
+            arr[i] = sc.nextInt();
+
+        }
+
+        for(int i=0; i<arr.length; i++){
+            for(int j=i+1; j<arr.length; j++){
+                if(arr[i] == arr[j]){
+                    System.out.println("[]");
+                    break;
+                }
+                if(arr[i] + arr[j] == targetsum){
+                    System.out.println("{" + arr[i] + "," + arr[j] + "}");
+
+
+                }
+                break;
+            }
+
+        }
+
+
+    }
+
+
+}
+
+
+ class numSum {
+    Scanner sc = new Scanner(System.in);
+    int targetsum = sc.nextInt();
+
+}
+
+
+ class getData {
+    Scanner sc = new Scanner(System.in);
+
+
+    public int size = sc.nextInt();
+
+
+
+    public int[] muaz= new int[size];
+
+
+}
