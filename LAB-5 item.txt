@@ -1,0 +1,43 @@
+import java.util.ArrayList;
+
+class Order {
+    int orderId;
+    ArrayList<String> itemNames;
+    boolean isCashOnDelivery;
+
+    public Order(int orderId, ArrayList<String> itemNames, boolean isCashOnDelivery) {
+        this.orderId = orderId;
+        this.itemNames = itemNames;
+        this.isCashOnDelivery = isCashOnDelivery;
+    }
+
+    public ArrayList<String> getItems() {
+        return itemNames;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        ArrayList<String> item1 = new ArrayList<String>();
+        item1.add("Jeans");
+        item1.add("T-Shirts");
+        item1.add("Shirts");
+        ArrayList<String> item2 = new ArrayList<String>();
+        item2.add("Sportswear");
+        item2.add("Smartwatch");
+        item2.add("Joggers");
+        ArrayList<String> item3 = new ArrayList<String>();
+        item3.add("Dumbells");
+        item3.add("Shorts");
+        ArrayList<Order> orders = new ArrayList<>();
+        orders.add(new Order(101, item1, true));
+        orders.add(new Order(102, item2, true));
+        orders.add(new Order(103, item3, true));
+
+        ArrayList<String> allItems = new ArrayList<>();
+        for (Order order : orders) {
+            allItems.addAll(order.getItems());
+        }
+        System.out.println(String.join(", ", allItems));
+    }
+}
