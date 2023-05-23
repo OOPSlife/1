@@ -15,16 +15,26 @@ class Adder extends Arithematic {
 public class Main {
     public static void main(String args[]) {
         Scanner scanner = new Scanner(System.in);
+        boolean continueLoop = true;
 
-        System.out.print("Enter the first number: ");
-        int num1 = scanner.nextInt();
+        while (continueLoop) {
+            System.out.print("Enter the first number: ");
+            int num1 = scanner.nextInt();
 
-        System.out.print("Enter the second number: ");
-        int num2 = scanner.nextInt();
+            System.out.print("Enter the second number: ");
+            int num2 = scanner.nextInt();
 
-        Arithematic obj = new Adder();
-        int result = obj.add(num1, num2);
-        System.out.println("Result: " + result);
+            Arithematic obj = new Adder();
+            int result = obj.add(num1, num2);
+            System.out.println("Result: " + result);
+
+            System.out.print("Do you want to continue? (Y/N): ");
+            String continueChoice = scanner.next();
+
+            if (continueChoice.equalsIgnoreCase("N")) {
+                continueLoop = false;
+            }
+        }
 
         scanner.close();
     }
