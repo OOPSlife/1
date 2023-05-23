@@ -1,0 +1,83 @@
+class participant{
+    private static int counter;
+    private String name;
+    private long contactNumber;
+    private String branch;
+    private String registrationId;
+
+    static{
+        counter = 1001;
+    }
+
+    public participant(participant p2){
+        this.registrationId = "D"+ counter;
+        this.name = p2.name;
+        this.contactNumber = p2.contactNumber;
+        this.branch = p2.branch;
+        counter++;
+    }
+
+    public participant(String name, long contactNumber, String branch){
+        this.registrationId = "D" + counter;
+        this.name = name;
+        this.contactNumber = contactNumber;
+        this.branch = branch;
+        counter++;
+    }
+    public participant(){
+        registrationId = "D"+ counter;
+        counter++;
+    }
+    public static int getCounter(){
+        return counter;
+    }
+    public String getName(){
+        return name;
+    }
+    public long getContactnumber(){
+        return contactNumber;
+    }
+    public String getbranch(){
+        return branch;
+    }
+    public String getregistrationId(){
+        return registrationId;
+    }
+    public void setCounter(int counter){
+        participant.counter = counter;
+    }
+    public void setname(String name){
+        this.name = name;
+    }
+    public void setcontactnumber(long contactNumber){
+        this.contactNumber = contactNumber;
+    }
+    public void setbranch(String branch){
+        this.branch = branch;
+    }
+    public void setregistrationId(String registrationId){
+        this.registrationId = registrationId;
+    }
+
+}
+
+
+
+
+
+class Main {
+    public static void main(String[] args) {
+        participant p1 = new participant("Rohit",123456789, "Computer");
+        participant p2 = new participant("Sayali", 1988612300, "Mechanical");
+        participant p3 = new participant(p2);
+        participant p4 = new participant();
+        p4.setname("Neel");
+        p4.setcontactnumber(91376L);
+        p4.setbranch("ICE");
+        System.out.println("Hi "+p1.getName() + "! Your registration Id is "+p1.getregistrationId());
+        System.out.println("Hi "+p2.getName()+ "! Your registration Id is "+p2.getregistrationId());
+        System.out.println("Hi" +p4.getName()+ "! Your registration Id is "+p4.getregistrationId());
+        System.out.println("Hi" +p3.getName()+ "! Your registration Id is "+p3.getregistrationId());
+
+    }
+}
