@@ -1,0 +1,80 @@
+import java.util.Scanner;
+class Shape{
+    double setArea(double pi, double r)
+    {
+        double area = Math.PI*r*r;
+        return area;
+    }
+    int setArea(int side)
+    {
+        int area = side*side;
+        return area;
+    }
+    int setArea(int b, int h)
+    {
+        int area = (b*h)/2;
+        return area;
+    }
+}
+
+class Circle extends Shape{
+    public void getInput()
+    {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the radius:");
+        int r = sc.nextInt();
+        System.out.println("The area of circle is:" +setArea(Math.PI, r));
+    }
+}
+class Square extends Shape{
+    public void getInput()
+    {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the side:");
+        int side = sc.nextInt();
+        System.out.println("The area of square is:" +setArea(side));
+    }
+}
+class Triangle extends Shape{
+    public void getInput()
+    {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the base:");
+        int b = sc.nextInt();
+        System.out.println("Enter the height:");
+        int h = sc.nextInt();
+        System.out.println("The area of triangle is:" +setArea(b,h));
+    }
+}
+class Main{
+    public static void main(String[] args)
+
+    {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Pick from the following");
+        System.out.println("1.area of Circle");
+        System.out.println("2.area of Square");
+        System.out.println("3.area of triangle");
+
+        int chioce = sc.nextInt();
+        switch(chioce) {
+            case 1:
+                Circle c = new Circle();
+                c.getInput();
+                break;
+            case 2:
+                Square s = new Square();
+                s.getInput();
+                break;
+            case 3:
+                Triangle t = new Triangle();
+                t.getInput();
+                break;
+            default:
+                System.out.println("Sorry");
+        }
+
+
+
+    }
+}
